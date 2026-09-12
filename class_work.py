@@ -45,7 +45,7 @@ def rewriter(code: str, weight: int, name_weight:str) -> str:
                                 words[i + 1] = words[i + 1].replace("]","")
                                 exit_from_loop = True
                                 next_i = i + 1
-                            returned += f"\n    t.backward({words[i + 1]}  * {name_weight})"
+                            returned += f"\n    t.backward({words[i + 1]} * {name_weight})"
                 else:
                     break;
                             
@@ -64,8 +64,8 @@ def rewriter(code: str, weight: int, name_weight:str) -> str:
                         case "направо":
                             returned += f"\nt.right({words[i + 1]})"
                         case "назад":
-                            returned += f"\nt.backward({words[i + 1]}  * {name_weight})"
-                        case "поднять":
+                            returned += f"\nt.backward({words[i + 1]} * {name_weight})"
+                        case "поднять": 
                             returned += f"\nt.up()"
                         case "опустить":
                             returned += f"\nt.down()"
