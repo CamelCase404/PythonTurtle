@@ -58,18 +58,20 @@ def rewriter(code: str, weight: int, name_weight:str) -> str:
                             next_i = i + 2
                             break;
                         case "вперёд":
-                            returned += f"\nt.forward({words[i + 1]} * {weight})"
+                            returned += f"\nt.forward({words[i + 1]} * {name_weight})"
                         case "налево":
                             returned += f"\nt.left({words[i + 1]})"
                         case "направо":
                             returned += f"\nt.right({words[i + 1]})"
                         case "назад":
-                            returned += f"\nt.backward({words[i + 1]}  * {weight})"
+                            returned += f"\nt.backward({words[i + 1]}  * {name_weight})"
                         case "поднять":
                             returned += f"\nt.up()"
                         case "опустить":
                             returned += f"\nt.down()"
                         case "хвост":
                             continue
+                    
                     i += 1
+                    next_i = i
     return "\n" + returned + "\n"
